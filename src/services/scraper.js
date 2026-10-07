@@ -40,8 +40,8 @@ async function extractQuoraHtml(targetUrl) {
     // Timeout set to 60s
     await page.goto(targetUrl, { waitUntil: 'networkidle2', timeout: 60000 });
 
-    console.log("Waiting briefly for page load...");
-    await new Promise(r => setTimeout(r, 2000));
+    console.log("Waiting 10 seconds to bypass Cloudflare security challenge...");
+    await new Promise(r => setTimeout(r, 10000));
 
     // Extract the full HTML of the page
     const htmlContent = await page.evaluate(() => document.documentElement.outerHTML);
